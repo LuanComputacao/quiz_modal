@@ -78,10 +78,19 @@ var QuizModal = {
   moveForward: function () {
     var newPosition = (this.quizQuestionsContainerLeft - this.quizBodyOffsetWidth);
 
+
+    if (parseInt(newPosition) === parseInt(this.quizQuestionsContainerLeftLimit) && !this.loop) {
+      console.log('stop')
+      this.quizButtonNext.setAttribute('disabled', 'disabled');
+    }
+
+    if (newPosition < 0) {
+      this.quizButtonPrev.removeAttribute('disabled');
+    }
+
     if (newPosition < this.quizQuestionsContainerLeftLimit) {
-      if(this.loop) {
+      if (this.loop) {
         this.quizQuestionsContainer.style.left = "0px";
-      } else {
       }
     } else {
       this.quizQuestionsContainer.style.left = newPosition + "px";
@@ -90,6 +99,16 @@ var QuizModal = {
 
   movePrevious: function () {
     var newPosition = (parseInt(this.quizQuestionsContainerLeft) + this.quizBodyOffsetWidth);
+
+    if (parseInt(newPosition) === 0 && !this.loop) {
+      console.log('stop')
+      this.quizButtonPrev.setAttribute('disabled', 'disabled');
+    }
+
+    if (newPosition > this.quizQuestionsContainerLeftLimit) {
+      this.quizButtonNext.removeAttribute('disabled');
+    }
+
     if (newPosition > 0) {
       if (this.loop) {
         this.quizQuestionsContainer.style.left = this.quizQuestionsContainerLeftLimit + "px";
