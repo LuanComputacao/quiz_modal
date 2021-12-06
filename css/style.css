@@ -89,6 +89,10 @@
 .quiz-button-next {
   background-image: url("/images/arrownext.svg");
 }
+.quiz-button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
 body {
   text-rendering: geometricPrecision;

@@ -100,4 +100,9 @@
     background-image: url('/images/arrownext.svg');
   }
 
+  &[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
 }

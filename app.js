@@ -1,19 +1,28 @@
 var QuizModal = {
   selector: '#quiz-modal',
 
-  init: function (selector) {
-    this.selector = selector || this.selector;
+  /**
+   * Initialize the modal
+   *
+   * @param {Object} options
+   * @returns void
+   */
+  init: function (options) {
+    this.options = {}
+    this.selector = this.options["selector"] || this.selector;
+    this.loop = this.options["loop"] || false;
     this.bindEvents();
     console.log('QuizModal initialized');
   },
+
   bindEvents: function () {
     document.addEventListener('DOMContentLoaded', this.onLoad.bind(this));
     console.log('QuizModal binded events');
   },
 
   onLoad: function () {
-    this.quiz = document.querySelector(this.selector);
-    this.quizQuestionsContainer = this.quiz.querySelector(".quiz-questions-container")
+
+    this.storeElements();
 
     this.quiz.addEventListener('click', this.onClick.bind(this));
     this.setQuizWidths()
@@ -21,6 +30,13 @@ var QuizModal = {
     this.quizQuestionsContainer.style.left = 0
 
     console.log('QuizModal loaded');
+  },
+
+  storeElements: function () {
+    this.quiz = document.querySelector(this.selector);
+    this.quizQuestionsContainer = this.quiz.querySelector(".quiz-questions-container")
+    this.quizButtonNext = this.quiz.querySelector(".quiz-button-next");
+    this.quizButtonPrev = this.quiz.querySelector(".quiz-button-prev");
   },
 
   onClick: function (event) {
@@ -63,8 +79,10 @@ var QuizModal = {
     var newPosition = (this.quizQuestionsContainerLeft - this.quizBodyOffsetWidth);
 
     if (newPosition < this.quizQuestionsContainerLeftLimit) {
-
-      this.quizQuestionsContainer.style.left = "0px";
+      if(this.loop) {
+        this.quizQuestionsContainer.style.left = "0px";
+      } else {
+      }
     } else {
       this.quizQuestionsContainer.style.left = newPosition + "px";
     }
@@ -73,7 +91,9 @@ var QuizModal = {
   movePrevious: function () {
     var newPosition = (parseInt(this.quizQuestionsContainerLeft) + this.quizBodyOffsetWidth);
     if (newPosition > 0) {
-      this.quizQuestionsContainer.style.left = this.quizQuestionsContainerLeftLimit + "px";
+      if (this.loop) {
+        this.quizQuestionsContainer.style.left = this.quizQuestionsContainerLeftLimit + "px";
+      }
     } else {
       this.quizQuestionsContainer.style.left = newPosition + "px";
     }
@@ -81,4 +101,4 @@ var QuizModal = {
 };
 
 
-QuizModal.init();
+QuizModal.init({});
