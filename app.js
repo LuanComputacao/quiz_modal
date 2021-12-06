@@ -17,15 +17,17 @@ var QuizModal = {
 
     this.quiz.addEventListener('click', this.onClick.bind(this));
     this.setQuizWidths()
+
+    this.quizQuestionsContainer.style.left = 0
+
     console.log('QuizModal loaded');
   },
 
   onClick: function (event) {
     console.log('-----')
     var target = event.target;
-    this.quizQuestionsContainerLeft = this.quizQuestionsContainer.style.left.replace('px', '')
+    this.quizQuestionsContainerLeft = this.quizQuestionsContainer.style.left.replace('px', '');
 
-    console.log("quizQuestionsContainerLeft", this.quizQuestionsContainerLeft)
 
     if (target.classList.contains('quiz-radio')) {
       setTimeout(function () {
@@ -40,7 +42,6 @@ var QuizModal = {
 
     if (target.classList.contains('quiz-button-prev')) {
       console.log('prev');
-      // this.quizQuestionsContainer.style.left = (parseInt(this.quizQuestionsContainerLeft) + parseInt(this.quizBodyOffsetWidth)) + "px";
       this.movePrevious();
     }
 
@@ -53,11 +54,9 @@ var QuizModal = {
       question.style.width = this.quizBodyOffsetWidth + 'px';
     }.bind(this));
 
-
     var newWidth = ((this.quizBodyOffsetWidth) * this.quizQuestions.length) + 'px';
     this.quizQuestionsContainer.style.width = newWidth;
     this.quizQuestionsContainerLeftLimit = (parseInt(newWidth.replace('px', '')) - parseInt(this.quizBodyOffsetWidth)) * -1;
-
   },
 
   moveForward: function () {
@@ -72,9 +71,8 @@ var QuizModal = {
   },
 
   movePrevious: function () {
-    var newPosition = (this.quizQuestionsContainerLeft + this.quizBodyOffsetWidth);
-
-    if (newPosition >= 0) {
+    var newPosition = (parseInt(this.quizQuestionsContainerLeft) + this.quizBodyOffsetWidth);
+    if (newPosition > 0) {
       this.quizQuestionsContainer.style.left = this.quizQuestionsContainerLeftLimit + "px";
     } else {
       this.quizQuestionsContainer.style.left = newPosition + "px";
