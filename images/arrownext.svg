@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="12.127979"
+   height="12.127"
+   viewBox="0 0 12.127979 12.127"
+   version="1.1"
+   id="svg28"
+   sodipodi:docname="arrownext.svg"
+   inkscape:version="1.1.1 (c3084ef, 2021-09-22)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview30"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="23.005051"
+     inkscape:cx="6.0638856"
+     inkscape:cy="7.063666"
+     inkscape:window-width="1418"
+     inkscape:window-height="925"
+     inkscape:window-x="2193"
+     inkscape:window-y="127"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="arrownext" />
+  <defs
+     id="defs20">
+    <filter
+       id="Path_32859"
+       x="0"
+       y="0"
+       width="36.818001"
+       height="36.818001"
+       filterUnits="userSpaceOnUse">
+      <feOffset
+         dy="1"
+         input="SourceAlpha"
+         id="feOffset9" />
+      <feGaussianBlur
+         stdDeviation="1.5"
+         result="blur"
+         id="feGaussianBlur11" />
+      <feFlood
+         flood-color="#1d1d1d"
+         flood-opacity="0.051"
+         id="feFlood13" />
+      <feComposite
+         operator="in"
+         in2="blur"
+         id="feComposite15"
+         result="result1" />
+      <feComposite
+         in="SourceGraphic"
+         in2="result1"
+         id="feComposite17" />
+    </filter>
+  </defs>
+  <g
+     id="arrownext"
+     transform="translate(-271.027,-482.889)">
+    <g
+       transform="translate(258.68,471.54)"
+       filter="url(#Path_32859)"
+       id="g23">
+      <path
+         id="Path_32859-2"
+         data-name="Path 32859"
+         d="M 30.818,16.909 A 13.909,13.909 0 1 1 16.909,3 13.909,13.909 0 0 1 30.818,16.909 Z"
+         transform="translate(1.5,0.5)"
+         style="fill:none" />
+    </g>
+    <g
+       id="g132">
+      <path
+         id="Path_32860"
+         data-name="Path 32860"
+         d="M 18,23.127 23.564,17.563 18,12"
+         transform="translate(259.091,471.389)"
+         fill="none"
+         stroke="#ffffff"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-width="1" />
+      <path
+         id="Path_32861"
+         data-name="Path 32861"
+         d="M 12,18 H 23.127"
+         transform="translate(259.527,470.953)"
+         fill="none"
+         stroke="#ffffff"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-width="1" />
+    </g>
+  </g>
+</svg>
